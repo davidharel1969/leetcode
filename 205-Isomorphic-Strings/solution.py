@@ -1,6 +1,6 @@
 class Solution(object):
     def isIsomorphic(self, s, t):
-        if (len(s)!=len(t)):
+        if len(s)!=len(t):
             return False
         mapping={}
         reverse_mapping={}
