@@ -5,15 +5,13 @@ class Solution(object):
         mapping={}
         reverse_mapping={}
         n=len(s)
-        for i in range(n):
-            c=s[i]
-            d=t[i]
-            exist_mapping=mapping.get(ord(c),None)
-            if (exist_mapping==None):
-                if (reverse_mapping.get(ord(d),None)!=None):
+        for c,d in zip(s,t):
+            exist_mapping=mapping.get(c,None)
+            if exist_mapping is None:
+                if (d in reverse_mapping):
                     return False
-                mapping[ord(c)]=d
-                reverse_mapping[ord(d)]=c
+                mapping[c]=d
+                reverse_mapping[d]=c
                 
             else:
                 if exist_mapping!=d:
