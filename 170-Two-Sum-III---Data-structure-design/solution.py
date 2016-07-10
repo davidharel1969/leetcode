@@ -1,20 +1,37 @@
-class TwoSum:
+import collections
+class TwoSum(object):
 
-    # initialize your data structure here
     def __init__(self):
-        self.lookup = collections.defaultdict(int)
+        """
+        initialize your data structure here
+        """
+        self.the_set=collections.defaultdict(int)
         
 
-    # @return nothing
     def add(self, number):
-        self.lookup[number] += 1
+        """
+        Add the number to an internal data structure.
+        :rtype: nothing
+        """
+        self.the_set[number]+=1
+        
+        
 
-
-    # @param value, an integer
-    # @return a Boolean
     def find(self, value):
-        for key in self.lookup:
-            num = value - key
-            if num in self.lookup and (num != key or self.lookup[key] > 1):
+        """
+        Find if there exists any pair of numbers which sum is equal to the value.
+        :type value: int
+        :rtype: bool
+        """
+        #print self.the_set
+        for x in self.the_set:
+            other=value-x
+            if other in self.the_set and (x!=other or self.the_set[x]>1):
                 return True
         return False
+        
+
+# Your TwoSum object will be instantiated and called as such:
+# twoSum = TwoSum()
+# twoSum.add(number)
+# twoSum.find(value)
