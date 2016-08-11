@@ -1,26 +1,17 @@
-/**
- * @param {string} ransomNote
- * @param {string} magazine
- * @return {boolean}
- */
-var canConstruct = function(ransomNote, magazine) {
-    var randsom_counter={}
-    var magazine_counter={}
-    for (let i=0;i<ransomNote.length;i++){
-        let x=ransomNote[i]
-        randsom_counter[x]=(randsom_counter[x]||0)+1
-    }
-    for (let i=0;i<magazine.length;i++){
-        let x=magazine[i]        
-        magazine_counter[x]=(magazine_counter[x]||0)+1   
-    }
-    console.log(ransomNote,magazine,randsom_counter,magazine_counter)
-    for (let x in randsom_counter ){
-        let count=randsom_counter[x];
-        if ((magazine_counter[x]||0)<count)
-            return false 
-    }
+const int*count_occur(char *s){
+    int *ans=malloc(sizeof(int)*256);
+    memset(ans,0,sizeof(int)*256);
+    while(*s)
+        ans[*(s++)]++;
+    return ans;
+}
+
+bool canConstruct(char* ransomNote, char* magazine) {
+    int *magazin_counts=count_occur(magazine);
+    int *ransom_counts=count_occur(ransomNote);
+    for (int i=0;i<256;i++)
+        if (ransom_counts[i]>magazin_counts[i])
+            return false;
     return true;
     
-    
-};
+}
