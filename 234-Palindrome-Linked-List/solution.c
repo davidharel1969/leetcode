@@ -34,7 +34,7 @@ struct ListNode* reverse(struct ListNode* head){
 }
 bool is_equal(struct ListNode* a,struct ListNode* b){
     while(a && b){
-        printf("%d %d\n",a->val,b->val);
+        //printf("%d %d\n",a->val,b->val);
         if (a->val!=b->val)
             return false;
         a=a->next;
@@ -54,7 +54,7 @@ void print(struct ListNode* head){
 bool isPalindrome(struct ListNode* head) {
     if (!head || !head->next) return true;
     int len=calc_len(head);
-    printf("n=%d\n",len);
+    //printf("n=%d\n",len);
     struct ListNode* before_mid=skip_n(head,len/2-1);
     struct ListNode*mid=before_mid->next;
     before_mid->next=0;
