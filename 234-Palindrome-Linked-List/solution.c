@@ -59,11 +59,11 @@ bool isPalindrome(struct ListNode* head) {
     struct ListNode*mid=before_mid->next;
     before_mid->next=0;
     
-    print(head);
-    print(mid);    
+    //print(head);
+    //print(mid);    
     mid=reverse(mid);
-    print(head);
-    print(mid);
+    //print(head);
+    //print(mid);
     return is_equal(head,mid);
     
 }
